@@ -6,6 +6,24 @@ import (
 	"net/http"
 )
 
+
+/*http
+The http.ResponseWriter interface: used to write response data to the client.
+
+The http.Request struct: represents the incoming HTTP request,
+including method, URL, headers, etc
+
+
+formHandler function: handles POST requests to the "/form" endpoint.
+	>parses the form data from the request. 
+	>Then, it retrieves the values of the "name" and "address" fields from the form data. 
+	>Finally, it prints out these values as a response to the client.
+	
+helloHandler function: handles GET requests to the "/hello" endpoint. 
+	>It checks if the request path matches "/hello" and if the HTTP method is GET. 
+	>If both conditions are met, it sends a "Forrest||Forrest||Forrest"  message to the client.
+
+*/
 func formHandler(w http.ResponseWriter, r *http.Request) {
 	if err := r.ParseForm(); err != nil {
 		fmt.Fprintf(w, "ParseForm() err: %v", err)
